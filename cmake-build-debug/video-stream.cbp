@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="video-stream"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/alnem/CLionProjects/video-stream/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\alnem\CLionProjects\video-stream\cmake-build-debug\Makefile VERBOSE=1 all"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\alnem\CLionProjects\video-stream\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\alnem\CLionProjects\video-stream\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\alnem\CLionProjects\video-stream\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/alnem/CLionProjects/video-stream/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\alnem\CLionProjects\video-stream\cmake-build-debug\Makefile VERBOSE=1 edit_cache"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\alnem\CLionProjects\video-stream\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\alnem\CLionProjects\video-stream\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\alnem\CLionProjects\video-stream\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="video-stream.elf">
+				<Option output="C:/Users/alnem/CLionProjects/video-stream/cmake-build-debug/video-stream.elf" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/alnem/CLionProjects/video-stream/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DDEBUG"/>
+					<Add option="-DUSE_HAL_DRIVER"/>
+					<Add option="-DSTM32F407xx"/>
+					<Add directory="C:/Users/alnem/CLionProjects/video-stream/Core/Inc"/>
+					<Add directory="C:/Users/alnem/CLionProjects/video-stream/USB_DEVICE/App"/>
+					<Add directory="C:/Users/alnem/CLionProjects/video-stream/USB_DEVICE/Target"/>
+					<Add directory="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Inc"/>
+					<Add directory="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy"/>
+					<Add directory="C:/Users/alnem/CLionProjects/video-stream/Middlewares/Third_Party/FreeRTOS/Source/include"/>
+					<Add directory="C:/Users/alnem/CLionProjects/video-stream/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS"/>
+					<Add directory="C:/Users/alnem/CLionProjects/video-stream/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F"/>
+					<Add directory="C:/Users/alnem/CLionProjects/video-stream/Middlewares/ST/STM32_USB_Device_Library/Core/Inc"/>
+					<Add directory="C:/Users/alnem/CLionProjects/video-stream/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc"/>
+					<Add directory="C:/Users/alnem/CLionProjects/video-stream/Drivers/CMSIS/Device/ST/STM32F4xx/Include"/>
+					<Add directory="C:/Users/alnem/CLionProjects/video-stream/Drivers/CMSIS/Include"/>
+					<Add directory="c:\program files (x86)\gnu arm embedded toolchain\10 2021.07\bin\../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/include/c++/10.3.1"/>
+					<Add directory="c:\program files (x86)\gnu arm embedded toolchain\10 2021.07\bin\../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/include/c++/10.3.1/arm-none-eabi"/>
+					<Add directory="c:\program files (x86)\gnu arm embedded toolchain\10 2021.07\bin\../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/include/c++/10.3.1/backward"/>
+					<Add directory="c:\program files (x86)\gnu arm embedded toolchain\10 2021.07\bin\../lib/gcc/arm-none-eabi/10.3.1/include"/>
+					<Add directory="c:\program files (x86)\gnu arm embedded toolchain\10 2021.07\bin\../lib/gcc/arm-none-eabi/10.3.1/include-fixed"/>
+					<Add directory="c:\program files (x86)\gnu arm embedded toolchain\10 2021.07\bin\../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\alnem\CLionProjects\video-stream\cmake-build-debug\Makefile VERBOSE=1 video-stream.elf"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\alnem\CLionProjects\video-stream\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\alnem\CLionProjects\video-stream\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\alnem\CLionProjects\video-stream\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="video-stream.elf/fast">
+				<Option output="C:/Users/alnem/CLionProjects/video-stream/cmake-build-debug/video-stream.elf" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/alnem/CLionProjects/video-stream/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DDEBUG"/>
+					<Add option="-DUSE_HAL_DRIVER"/>
+					<Add option="-DSTM32F407xx"/>
+					<Add directory="C:/Users/alnem/CLionProjects/video-stream/Core/Inc"/>
+					<Add directory="C:/Users/alnem/CLionProjects/video-stream/USB_DEVICE/App"/>
+					<Add directory="C:/Users/alnem/CLionProjects/video-stream/USB_DEVICE/Target"/>
+					<Add directory="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Inc"/>
+					<Add directory="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy"/>
+					<Add directory="C:/Users/alnem/CLionProjects/video-stream/Middlewares/Third_Party/FreeRTOS/Source/include"/>
+					<Add directory="C:/Users/alnem/CLionProjects/video-stream/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS"/>
+					<Add directory="C:/Users/alnem/CLionProjects/video-stream/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F"/>
+					<Add directory="C:/Users/alnem/CLionProjects/video-stream/Middlewares/ST/STM32_USB_Device_Library/Core/Inc"/>
+					<Add directory="C:/Users/alnem/CLionProjects/video-stream/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc"/>
+					<Add directory="C:/Users/alnem/CLionProjects/video-stream/Drivers/CMSIS/Device/ST/STM32F4xx/Include"/>
+					<Add directory="C:/Users/alnem/CLionProjects/video-stream/Drivers/CMSIS/Include"/>
+					<Add directory="c:\program files (x86)\gnu arm embedded toolchain\10 2021.07\bin\../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/include/c++/10.3.1"/>
+					<Add directory="c:\program files (x86)\gnu arm embedded toolchain\10 2021.07\bin\../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/include/c++/10.3.1/arm-none-eabi"/>
+					<Add directory="c:\program files (x86)\gnu arm embedded toolchain\10 2021.07\bin\../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/include/c++/10.3.1/backward"/>
+					<Add directory="c:\program files (x86)\gnu arm embedded toolchain\10 2021.07\bin\../lib/gcc/arm-none-eabi/10.3.1/include"/>
+					<Add directory="c:\program files (x86)\gnu arm embedded toolchain\10 2021.07\bin\../lib/gcc/arm-none-eabi/10.3.1/include-fixed"/>
+					<Add directory="c:\program files (x86)\gnu arm embedded toolchain\10 2021.07\bin\../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\alnem\CLionProjects\video-stream\cmake-build-debug\Makefile VERBOSE=1 video-stream.elf/fast"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\alnem\CLionProjects\video-stream\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\alnem\CLionProjects\video-stream\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\alnem\CLionProjects\video-stream\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/alnem/CLionProjects/video-stream/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="nmake /NOLOGO /f C:\Users\alnem\CLionProjects\video-stream\cmake-build-debug\Makefile VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="nmake /NOLOGO /f C:\Users\alnem\CLionProjects\video-stream\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f C:\Users\alnem\CLionProjects\video-stream\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f C:\Users\alnem\CLionProjects\video-stream\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Core/Inc/FreeRTOSConfig.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Core/Inc/i2c_camera_init.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Core/Inc/main.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Core/Inc/ov7670configs/CameraOV7670Registers.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Core/Inc/ov7670configs/configs.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Core/Inc/stm32f4xx_hal_conf.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Core/Inc/stm32f4xx_it.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Core/Src/freertos.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Core/Src/i2c_camera_init.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Core/Src/main.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Core/Src/ov7670configs/default_configs.cpp">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Core/Src/ov7670configs/vga.cpp">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Core/Src/stm32f4xx_hal_msp.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Core/Src/stm32f4xx_it.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Core/Src/system_stm32f4xx.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/CMSIS/Include/cmsis_armcc.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/CMSIS/Include/cmsis_armclang.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/CMSIS/Include/cmsis_compiler.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/CMSIS/Include/cmsis_gcc.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/CMSIS/Include/cmsis_iccarm.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/CMSIS/Include/cmsis_version.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/CMSIS/Include/core_armv8mbl.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/CMSIS/Include/core_armv8mml.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/CMSIS/Include/core_cm0.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/CMSIS/Include/core_cm0plus.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/CMSIS/Include/core_cm1.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/CMSIS/Include/core_cm23.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/CMSIS/Include/core_cm3.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/CMSIS/Include/core_cm33.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/CMSIS/Include/core_cm4.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/CMSIS/Include/core_cm7.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/CMSIS/Include/core_sc000.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/CMSIS/Include/core_sc300.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/CMSIS/Include/mpu_armv7.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/CMSIS/Include/mpu_armv8.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/CMSIS/Include/tz_context.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dcmi.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dcmi_ex.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c_ex.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd_ex.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dcmi.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dcmi_ex.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Middlewares/Third_Party/FreeRTOS/Source/croutine.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Middlewares/Third_Party/FreeRTOS/Source/event_groups.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Middlewares/Third_Party/FreeRTOS/Source/include/StackMacros.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Middlewares/Third_Party/FreeRTOS/Source/include/atomic.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Middlewares/Third_Party/FreeRTOS/Source/include/croutine.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Middlewares/Third_Party/FreeRTOS/Source/include/list.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Middlewares/Third_Party/FreeRTOS/Source/include/message_buffer.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Middlewares/Third_Party/FreeRTOS/Source/include/mpu_prototypes.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Middlewares/Third_Party/FreeRTOS/Source/include/portable.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Middlewares/Third_Party/FreeRTOS/Source/include/queue.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Middlewares/Third_Party/FreeRTOS/Source/include/stack_macros.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Middlewares/Third_Party/FreeRTOS/Source/include/stream_buffer.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Middlewares/Third_Party/FreeRTOS/Source/include/task.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Middlewares/Third_Party/FreeRTOS/Source/include/timers.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Middlewares/Third_Party/FreeRTOS/Source/list.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Middlewares/Third_Party/FreeRTOS/Source/queue.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Middlewares/Third_Party/FreeRTOS/Source/tasks.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/Middlewares/Third_Party/FreeRTOS/Source/timers.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/STM32F407VGTX_FLASH.ld">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/USB_DEVICE/App/usb_device.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/USB_DEVICE/App/usb_device.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/USB_DEVICE/App/usbd_cdc_if.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/USB_DEVICE/App/usbd_cdc_if.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/USB_DEVICE/App/usbd_desc.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/USB_DEVICE/App/usbd_desc.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/USB_DEVICE/Target/usbd_conf.c">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/USB_DEVICE/Target/usbd_conf.h">
+			<Option target="video-stream.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/alnem/CLionProjects/video-stream/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
