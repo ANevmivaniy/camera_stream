@@ -1,0 +1,3 @@
+C:/Users/alnem/CLionProjects/video-stream/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/alnem/CLionProjects/video-stream/cmake-build-debug/CMakeFiles/video-stream.elf.dir
+C:/Users/alnem/CLionProjects/video-stream/cmake-build-debug/CMakeFiles/rebuild_cache.dir
