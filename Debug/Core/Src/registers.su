@@ -1,0 +1,17 @@
+registers.c:15:6:setI2cHandleTypeDef	0	static
+registers.c:40:19:setRegister	16	static
+registers.c:19:19:resetSettings	8	static
+registers.c:26:6:setRegisters	8	static
+registers.c:49:9:readRegister	24	static
+registers.c:63:6:setRegisterBitsOR	16	static
+registers.c:68:6:setRegisterBitsAND	16	static
+registers.c:74:6:setDisablePixelClockDuringBlankLines	8	static
+registers.c:78:6:setDisableHREFDuringBlankLines	8	static
+registers.c:82:6:setHREFReverse	8	static
+registers.c:87:6:setInternalClockPreScaler	8	static
+registers.c:92:6:setPLLMultiplier	8	static
+registers.c:99:6:setManualContrastCenter	8	static
+registers.c:105:6:setContrast	8	static
+registers.c:111:6:setBrightness	8	static
+registers.c:116:6:reversePixelBits	8	static
+registers.c:121:6:setShowColorBar	8	static
