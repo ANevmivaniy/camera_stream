@@ -1,1 +1,3 @@
-setup_camera.c:11:21:setup	16	static
+setup_camera.c:15:21:setup	16	static
+setup_camera.c:45:22:getSetupInfo	8	static
+setup_camera.c:49:22:getSetupInfo2	8	static

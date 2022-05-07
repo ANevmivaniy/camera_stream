@@ -6,7 +6,7 @@
 
 extern struct RegisterData* regsDefault;
 extern struct RegisterData* regsVGA;
-const uint8_t i2cAddress = 0x21;
+const uint8_t i2cAddress = (0x21 << 1);
 
 uint8_t writeBuf[2];
 uint8_t readBuf;
@@ -18,7 +18,6 @@ void setI2cHandleTypeDef(I2C_HandleTypeDef * hi2c1) {
 
 HAL_StatusTypeDef resetSettings() {
   HAL_StatusTypeDef status = setRegister(REG_COM7, COM7_RESET);
-  //bool isSuccessful = setRegister(REG_COM7, COM7_RESET);
   HAL_Delay(500);
   return status;
 }
@@ -40,10 +39,71 @@ void setRegisters(const struct RegisterData *programMemPointer) {
 HAL_StatusTypeDef setRegister(uint8_t addr, uint8_t val) {
     *(writeBuf + 0) = addr;
     *(writeBuf + 1) = val;
+    while (HAL_I2C_GetState(baseHi2c1) != HAL_I2C_STATE_READY);
     HAL_StatusTypeDef status = HAL_I2C_Master_Transmit(
             baseHi2c1, i2cAddress, writeBuf, 2 * sizeof (uint8_t), 1000);
 
   return status;
+}
+
+struct RegisterData* getRegisters(const struct RegisterData *programMemPointer) {
+	int counter = 0;
+	struct RegisterData *pointer = programMemPointer;
+	while (1) {
+	    if (pointer->addr == 0xFF) {
+	      break;
+	    } else {
+	      pointer++;
+	      counter++;
+	    }
+	}
+  struct RegisterData data[counter + 2];
+  int counter_1 = 0;
+  while (1) {
+    if (programMemPointer->addr == 0xFF) {
+      break;
+    } else {
+      getRegister(programMemPointer->addr);
+      (data + counter_1)->addr = *writeBuf;
+      (data + counter_1)->val = *(writeBuf + 1);
+      programMemPointer++;
+      counter_1++;
+    }
+  }
+  (data + counter + 1)->addr = 0xFF;
+
+  return data;
+}
+
+struct RegisterData* getRegisters2(const int size) {
+  struct RegisterData data[size + 1];
+  int counter_1 = 0;
+  while (counter_1 < size) {
+      getRegister((uint8_t)counter_1);
+      (data + counter_1)->addr = *writeBuf;
+      (data + counter_1)->val = *(writeBuf + 1);
+      counter_1++;
+  }
+
+  (data + size)->addr = 0xFF;
+
+  return data;
+}
+
+HAL_StatusTypeDef getRegister(uint8_t addr) {
+	*(writeBuf + 0) = addr;
+	while (HAL_I2C_GetState(baseHi2c1) != HAL_I2C_STATE_READY);
+	HAL_StatusTypeDef status = HAL_I2C_Master_Transmit(
+				baseHi2c1, i2cAddress, writeBuf, 1, 1000);
+
+	if (status != HAL_OK) return status;
+
+	while (HAL_I2C_GetState(baseHi2c1) != HAL_I2C_STATE_READY);
+	status = HAL_I2C_Master_Receive(
+			baseHi2c1, i2cAddress, writeBuf + 1, 1, 1000);
+
+
+	return status;
 }
 
 uint8_t readRegister(uint8_t addr) {

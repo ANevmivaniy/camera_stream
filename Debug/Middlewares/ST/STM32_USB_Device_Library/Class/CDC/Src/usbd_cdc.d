@@ -24,6 +24,8 @@ Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o: \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dcmi.h \
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dcmi_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h \
@@ -34,6 +36,9 @@ Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o: \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd_ex.h \
+ ../Core/Inc/ov7670configs/configs.h ../Core/Inc/camera.h \
+ ../USB_DEVICE/App/usb_device.h \
+ ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h \
  ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h \
  ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h \
  ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h \
@@ -89,6 +94,10 @@ Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o: \
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h:
 
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dcmi.h:
+
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dcmi_ex.h:
+
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h:
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h:
@@ -108,6 +117,14 @@ Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o: \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h:
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd_ex.h:
+
+../Core/Inc/ov7670configs/configs.h:
+
+../Core/Inc/camera.h:
+
+../USB_DEVICE/App/usb_device.h:
+
+../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:
 
 ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h:
 

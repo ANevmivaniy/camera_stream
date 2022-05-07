@@ -21,13 +21,12 @@
 #include "main.h"
 #include "cmsis_os.h"
 #include "usb_device.h"
-#include "usbd_cdc_if.h"
-#include "setup_camera.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "main.h"
 #include "usbd_cdc_if.h"
+#include "setup_camera.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -46,6 +45,8 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
+DCMI_HandleTypeDef hdcmi;
+
 I2C_HandleTypeDef hi2c1;
 
 osThreadId defaultTaskHandle;
@@ -59,11 +60,11 @@ HAL_StatusTypeDef status;
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_I2C1_Init(void);
+static void MX_DCMI_Init(void);
 void StartDefaultTask(void const * argument);
-void LoggerTask(void const * argument);
 
 /* USER CODE BEGIN PFP */
-
+void LoggerTask(void const * argument);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -76,7 +77,7 @@ void LoggerTask(void const * argument);
   * @retval int
   */
 int main(void)
-{
+ {
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
@@ -99,6 +100,8 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_I2C1_Init();
+  MX_DCMI_Init();
   /* USER CODE BEGIN 2 */
 
   MX_USB_DEVICE_Init();
@@ -130,7 +133,7 @@ int main(void)
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
   osThreadDef(logger, LoggerTask, osPriorityNormal, 0, 128);
-  logThread = osThreadCreate(osThread(logger), NULL);
+  //logThread = osThreadCreate(osThread(logger), NULL);
   /* USER CODE END RTOS_THREADS */
 
   /* Start scheduler */
@@ -164,8 +167,10 @@ void SystemClock_Config(void)
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI|RCC_OSCILLATORTYPE_HSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
   RCC_OscInitStruct.PLL.PLLM = 8;
@@ -189,6 +194,40 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
+  HAL_RCC_MCOConfig(RCC_MCO1, RCC_MCO1SOURCE_HSI, RCC_MCODIV_1);
+}
+
+/**
+  * @brief DCMI Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_DCMI_Init(void)
+{
+
+  /* USER CODE BEGIN DCMI_Init 0 */
+
+  /* USER CODE END DCMI_Init 0 */
+
+  /* USER CODE BEGIN DCMI_Init 1 */
+
+  /* USER CODE END DCMI_Init 1 */
+  hdcmi.Instance = DCMI;
+  hdcmi.Init.SynchroMode = DCMI_SYNCHRO_HARDWARE;
+  hdcmi.Init.PCKPolarity = DCMI_PCKPOLARITY_FALLING;
+  hdcmi.Init.VSPolarity = DCMI_VSPOLARITY_LOW;
+  hdcmi.Init.HSPolarity = DCMI_HSPOLARITY_LOW;
+  hdcmi.Init.CaptureRate = DCMI_CR_ALL_FRAME;
+  hdcmi.Init.ExtendedDataMode = DCMI_EXTEND_DATA_10B;
+  hdcmi.Init.JPEGMode = DCMI_JPEG_DISABLE;
+  if (HAL_DCMI_Init(&hdcmi) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN DCMI_Init 2 */
+
+  /* USER CODE END DCMI_Init 2 */
+
 }
 
 /**
@@ -215,11 +254,11 @@ static void MX_I2C1_Init(void)
   hi2c1.Init.OwnAddress2 = 0;
   hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
   hi2c1.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
-  status = HAL_I2C_Init(&hi2c1);
-  if (status != HAL_OK)
+  if (HAL_I2C_Init(&hi2c1) != HAL_OK)
   {
     Error_Handler();
   }
+  /* USER CODE BEGIN I2C1_Init 2 */
 
   /* USER CODE END I2C1_Init 2 */
 
@@ -236,113 +275,36 @@ static void MX_GPIO_Init(void)
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOE_CLK_ENABLE();
-  __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOH_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
-  __HAL_RCC_GPIOD_CLK_ENABLE();
 
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(CS_I2C_SPI_GPIO_Port, CS_I2C_SPI_Pin, GPIO_PIN_RESET);
-
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(OTG_FS_PowerSwitchOn_GPIO_Port, OTG_FS_PowerSwitchOn_Pin, GPIO_PIN_SET);
-
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOD, LD4_Pin|LD3_Pin|LD5_Pin|LD6_Pin
-                          |Audio_RST_Pin, GPIO_PIN_RESET);
-
-  /*Configure GPIO pin : CS_I2C_SPI_Pin */
-  GPIO_InitStruct.Pin = CS_I2C_SPI_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(CS_I2C_SPI_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : OTG_FS_PowerSwitchOn_Pin */
-  GPIO_InitStruct.Pin = OTG_FS_PowerSwitchOn_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(OTG_FS_PowerSwitchOn_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : PDM_OUT_Pin */
-  GPIO_InitStruct.Pin = PDM_OUT_Pin;
+  /*Configure GPIO pin : PA8 */
+  GPIO_InitStruct.Pin = GPIO_PIN_8;
   GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  GPIO_InitStruct.Alternate = GPIO_AF5_SPI2;
-  HAL_GPIO_Init(PDM_OUT_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : B1_Pin */
-  GPIO_InitStruct.Pin = B1_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_EVT_RISING;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(B1_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : I2S3_WS_Pin */
-  GPIO_InitStruct.Pin = I2S3_WS_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  GPIO_InitStruct.Alternate = GPIO_AF6_SPI3;
-  HAL_GPIO_Init(I2S3_WS_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : SPI1_SCK_Pin SPI1_MISO_Pin SPI1_MOSI_Pin */
-  GPIO_InitStruct.Pin = SPI1_SCK_Pin|SPI1_MISO_Pin|SPI1_MOSI_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  GPIO_InitStruct.Alternate = GPIO_AF5_SPI1;
+  GPIO_InitStruct.Alternate = GPIO_AF0_MCO;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : BOOT1_Pin */
-  GPIO_InitStruct.Pin = BOOT1_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(BOOT1_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : CLK_IN_Pin */
-  GPIO_InitStruct.Pin = CLK_IN_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  GPIO_InitStruct.Alternate = GPIO_AF5_SPI2;
-  HAL_GPIO_Init(CLK_IN_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : LD4_Pin LD3_Pin LD5_Pin LD6_Pin
-                           Audio_RST_Pin */
-  GPIO_InitStruct.Pin = LD4_Pin|LD3_Pin|LD5_Pin|LD6_Pin
-                          |Audio_RST_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : I2S3_MCK_Pin I2S3_SCK_Pin I2S3_SD_Pin */
-  GPIO_InitStruct.Pin = I2S3_MCK_Pin|I2S3_SCK_Pin|I2S3_SD_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  GPIO_InitStruct.Alternate = GPIO_AF6_SPI3;
-  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : OTG_FS_OverCurrent_Pin */
-  GPIO_InitStruct.Pin = OTG_FS_OverCurrent_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(OTG_FS_OverCurrent_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : MEMS_INT2_Pin */
-  GPIO_InitStruct.Pin = MEMS_INT2_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_EVT_RISING;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(MEMS_INT2_GPIO_Port, &GPIO_InitStruct);
 
 }
 
 /* USER CODE BEGIN 4 */
+void LoggerTask(void const * argument)
+{
+    char* str = NULL;
+    osEvent event;
 
+    for(;;)
+    {
+        event = osMessageGet(pos_Queue, osWaitForever);
+        if (event.status == osEventMessage)
+        {
+           // CDC_Transmit_FS((uint8_t *) (char*) event.value.v, strlen((char*) event.value.v));
+        }
+    }
+}
 /* USER CODE END 4 */
 
 /* USER CODE BEGIN Header_StartDefaultTask */
@@ -356,59 +318,53 @@ void StartDefaultTask(void const * argument)
 {
   /* init code for USB_DEVICE */
   MX_USB_DEVICE_Init();
-  MX_I2C1_Init();
   /* USER CODE BEGIN 5 */
-  //TODO настройки камеры
-  int i = 0;
-  char * str = (char*) malloc(sizeof (char) * 100);
+	  //TODO настройки камеры
+	  int i = 0;
+	  char * str = (char*) malloc(sizeof (char) * 100);
 
-  //TODO настройки камеры
-  /* Infinite loop */
+	  //TODO настройки камеры
+	  /* Infinite loop */
 
+	  struct StatusStruct status = setup(&hi2c1, RESOLUTION_QVGA_320x240, PIXEL_RGB565);
 
-  //osMessagePut(pos_Queue, (uint32_t) "", osWaitForever);
-  for(;;)
-  {
-        osDelay(1000);
-        sprintf(str, "%s! %d\n\r", "wait for setup", status);
-        osMessagePut(pos_Queue, (uint32_t) str, osWaitForever);
-        struct StatusStruct status = setup(&hi2c1, RESOLUTION_QQVGA_160x120, PIXEL_RGB565);
-        if (status.value) {
-            osDelay(1000);
-            sprintf(str, "%s!\n\r", "Setup is ok");
-            osMessagePut(pos_Queue, (uint32_t) str, osWaitForever);
-        } else {
-            osDelay(1000);
-            sprintf(str, "%s!\n\r", "Setup is not ok");
-            osMessagePut(pos_Queue, (uint32_t) str, osWaitForever);
-            osDelay(100);
-            sprintf(str, "%s %d!\n\r", "status is ", status.status);
-            osMessagePut(pos_Queue, (uint32_t) str, osWaitForever);
-            osDelay(100);
-            sprintf(str, "%s!\n\r", hi2c1.Init.DualAddressMode);
-            osMessagePut(pos_Queue, (uint32_t) str, osWaitForever);
-        }
-  }
+//	  for(;;)
+//	  {
+//	        osDelay(1000);
+//	        sprintf(str, "%s! %d\n\r", "wait for setup", status);
+//	        osMessagePut(pos_Queue, (uint32_t) str, osWaitForever);
+//	        struct StatusStruct status = setup(&hi2c1, RESOLUTION_QVGA_320x240, PIXEL_RGB565);
+//	        if (status.value) {
+//	            osDelay(100);
+//	            sprintf(str, "%s!\n\r", "Setup is ok");
+//	            osMessagePut(pos_Queue, (uint32_t) str, osWaitForever);
+//	            struct RegisterData* data = getSetupInfo2();
+//	            int i = 0;
+//	            while (i <= 100) {
+//	            	osDelay(10);
+//	            	sprintf(str, "%d -> %d\n\r", data->addr, data->val);
+//	            	osMessagePut(pos_Queue, (uint32_t) str, osWaitForever);
+//	            	data++;
+//	            	i++;
+//	            }
+//	        } else {
+//	            osDelay(1000);
+//	            sprintf(str, "%s!\n\r", "Setup is not ok");
+//	            osMessagePut(pos_Queue, (uint32_t) str, osWaitForever);
+//	            osDelay(100);
+//	            sprintf(str, "%s %d!\n\r", "status is ", status.status);
+//	            osMessagePut(pos_Queue, (uint32_t) str, osWaitForever);
+//	            osDelay(100);
+//	            sprintf(str, "%s!\n\r", hi2c1.Init.DualAddressMode);
+//	            osMessagePut(pos_Queue, (uint32_t) str, osWaitForever);
+//	        }
+//	  }
+
+	  while (1)
+	  {
+	    processFrame();
+	  }
   /* USER CODE END 5 */
-}
-
-
-
-void LoggerTask(void const * argument)
-{
-    /* USER CODE BEGIN 5 */
-    char* str = NULL;
-    osEvent event;
-
-    for(;;)
-    {
-        event = osMessageGet(pos_Queue, osWaitForever);
-        if (event.status == osEventMessage)
-        {
-            CDC_Transmit_FS((uint8_t *) (char*) event.value.v, strlen((char*) event.value.v));
-        }
-    }
-    /* USER CODE END 5 */
 }
 
 /**
